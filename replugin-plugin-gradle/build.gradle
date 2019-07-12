@@ -23,12 +23,14 @@ apply plugin: 'maven-publish'
 
 repositories {
     jcenter()
+    google()
     mavenCentral()
 }
 
 buildscript {
     repositories {
         jcenter()
+        google()
         mavenCentral()
     }
     dependencies {
