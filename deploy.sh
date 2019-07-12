@@ -15,8 +15,11 @@ __rp_deploy_project(){
 	[[ ! -d ${1} ]] && echo ">>> INVALID ${1}!!! <<<" && return
 	# execute deploying
 	echo ">>> ${1} <<<" && cd ${1} && __gradle_exec -p ${1} clean bintrayUpload
+#	echo ">>> ${1} <<<" && cd ${1} && __gradle_exe -p ${1} clean publishToMavenLocal
+#	echo ">>> ${1} <<<" && cd ${1} && ./gradlew publishToMavenLocal
+	
 	# revert changed files
-	git checkout ${1}
+#	git checkout ${1}
 }
 
 rp_deploy(){
@@ -54,5 +57,7 @@ rp_test(){
 	done
 	cd ${current}
 }
+
+rp_deploy
 
 # grep --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,build,.gradle} -inr '2\.3\.0' .
