@@ -16,6 +16,7 @@
 buildscript {
     { p, cfg = "rp-config.gradle" -> if (new File(p, cfg).exists()) apply from: "${p}/${cfg}" else if (p.exists()) call(p.parentFile) }(buildscript.sourceFile.parentFile)
     repositories {
+        maven{url "https://dl.bintray.com/soli/maven"}
         mavenLocal()
         jcenter()
         google()
@@ -28,6 +29,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven{url "https://dl.bintray.com/soli/maven"}
         mavenLocal()
         jcenter()
         google()
