@@ -92,15 +92,21 @@ public class MainActivity extends Activity {
         // =========
         // Activity
         // =========
-        mItems.add(new TestItem("Jump 2 Host", v -> {
-            // 打开宿主Activity
-            Intent intent = new Intent();
-            intent.setClassName("com.qihoo360.replugin.sample.host", "com.qihoo360.replugin.sample.host.PluginFragmentActivity");
-            v.getContext().startActivity(intent);
+        mItems.add(new TestItem("Jump 2 Host", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 打开宿主Activity
+                Intent intent = new Intent();
+                intent.setClassName("com.qihoo360.replugin.sample.host", "com.qihoo360.replugin.sample.host.PluginFragmentActivity");
+                v.getContext().startActivity(intent);
+            }
         }));
-        mItems.add(new TestItem("Activity: Standard", v -> {
-            Intent intent = new Intent(v.getContext(), StandardActivity.class);
-            v.getContext().startActivity(intent);
+        mItems.add(new TestItem("Activity: Standard", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), StandardActivity.class);
+                v.getContext().startActivity(intent);
+            }
         }));
         mItems.add(new TestItem("Activity: Theme BlackNoTitleBar", new View.OnClickListener() {
             @Override
